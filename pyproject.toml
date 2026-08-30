@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-make = "src.main:main"
+generatedvd = "src.main:main"
 
 [tool.setuptools]
 packages = ["src"]
