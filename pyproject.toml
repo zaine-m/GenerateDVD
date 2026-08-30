@@ -3,11 +3,11 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "create-dvd"
+name = "GenerateDVD"
 version = "0.1.0"
 description = "creates a dvd from youtube videos"
 readme = "README.md"
-authors = [{name = "Zaine", email = "zainemoodie@gmail.com"}]
+authors = [{name = "Zaine"}]
 dependencies = [
     "yt-dlp[default,curl-cffi]",
     "ollama>=0.5.0",
