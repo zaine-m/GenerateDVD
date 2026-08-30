@@ -55,12 +55,13 @@ class CreateImages:
         image.paste(gradient, (x1, y1), mask)
         image.paste(gradient, (x1+550, y1), mask)
 
-        font = ImageFont.truetype("C:\\Users\\Lenovo\\Videos\\toDVD\\DvdWriter\\Roboto\\static\\Roboto_Condensed-Regular.ttf", 150)
-        draw.text((625, 350), self.title, fill='#111827', font=font)
+        font = ImageFont.truetype("C:\\Users\\Lenovo\\Videos\\toDVD\\DvdWriter\\Roboto\\Roboto-SemiBold.ttf", 150)
+        draw.text((625, 350), self.title, fill='#000000', font=font)
 
-        font = ImageFont.truetype("C:\\Users\\Lenovo\\Videos\\toDVD\\DvdWriter\\Roboto\\static\\Roboto_Condensed-Regular.ttf", 63)
-        draw.text((625, 550), f"{self.username} • {self.vidNum} videos • {self.minutes} minutes", fill='#111827', font=font)
-        draw.text((625, 650), self.description, fill='#111827', font=font)
+        font = ImageFont.truetype("C:\\Users\\Lenovo\\Videos\\toDVD\\DvdWriter\\Roboto\\Roboto-Regular.ttf", 63)
+        draw.text((625, 550), f"{self.username}", fill='#000000', font=font)
+        draw.text((625+(draw.textsize(f"{self.username}", font=font)), 550), f" • {self.vidNum} videos • {self.minutes} minutes", fill='#444444', font=font)
+        draw.text((625, 650), self.description, fill="#444444", font=font)
 
         # Save the image
         bckgndPath = (self.basePath / "HomePage" / "Background.jpg")
