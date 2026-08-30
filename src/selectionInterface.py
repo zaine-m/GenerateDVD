@@ -1,3 +1,5 @@
+# This file was created by ChatGPT (GPT-5.6 Luna, OpenAI). August 30, 2026
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from pathlib import Path

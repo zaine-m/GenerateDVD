@@ -1,6 +1,6 @@
 from . import download
 from . import dvd
-from . import app
+from . import selectionInterface
 from . import scrapChannel
 from . import createImages
 from pathlib import Path
@@ -11,7 +11,7 @@ from pathlib import Path
 # import createImages
 import shutil
 
-
+RANDOM_AFTER_VIDEO = True
 
 def move(basePath, inFiles):
     for key, file in inFiles.items():
@@ -19,7 +19,7 @@ def move(basePath, inFiles):
             shutil.move(file, str(basePath/ 'background' / key))
 
 def main():
-    myInput, ytName, background = app.getInput()
+    myInput, ytName, background = selectionInterface.getInput()
     
     if background['ImageMode'] == 'youtube':
         _, _, ytName = background['YouTubeChannel'].partition("@")
@@ -46,7 +46,7 @@ def main():
 
     with (basePath / (ytName+".dvds")).open("w", encoding="utf-8") as f:
         f.write(myDvd.styler())
-    app.finish()
+    selectionInterface.finish()
 
 if __name__ == "__main__":
     main()

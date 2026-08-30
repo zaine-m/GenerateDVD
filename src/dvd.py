@@ -1,5 +1,7 @@
 import math
 
+RANDOM_AFTER_VIDEO = True
+
 class DVD:
   def __init__(self, videoData, ytName):
     self.videoData = videoData
@@ -230,10 +232,28 @@ class DVD:
           <menu videoFormat="NTSC" aspectRatio="2" rememberLastButton="0">
             <svg width="720" height="405">
               <rect width="720" height="405" id="backgroundColour" style="fill:#000000;"/>
-              <defs id="defs"/>
-              <g id="objects"/>
+              <defs id="defs">
+                <svg id="s_obj01">
+                  <defs>
+                    <filter id="shadowFilter">
+                      <feGaussianBlur stdDeviation="3"/>
+                    </filter>
+                  </defs>
+                  <rect x="0" y="0" width="100%" height="100%" id="background" style="fill:#000000;fill-opacity:0;"/>
+                  <use x="2" y="2" id="shadow" xlink:href="#text" style="fill:#404040;fill-opacity:1;filter:url(#shadowFilter);visibility:hidden;"/>
+                  <g id="main" style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:0;">
+                    <text x="50%" y="50%" id="text" xml:space="preserve" style="dominant-baseline:middle;font-family:Arial;font-size:26;font-style:normal;font-weight:normal;stroke-width:0;text-anchor:middle;text-decoration:none;">DO NOT DELETE THIS PAGE<tbreak/>This page is used to randomly shuffle video order</text>
+                  </g>
+                </svg>
+              </defs>
+              <g id="objects">
+                <use x="72" y="168" width="570" height="63" id="obj01" xlink:href="#s_obj01"/>
+              </g>
               <g id="buttons"/>
             </svg>
+            <object id="obj01" defSize="true" displayVideoFrame="false">
+              <filename>text-v2.xml</filename>
+            </object>
           </menu>
         </vob>
         {self.randomizer()}
@@ -251,7 +271,7 @@ class DVD:
           <textsub filename="Subtitles\\{self.videos[n]}.en.srt" characterset="CP1252" fill-color="#ffffffff" outline-color="#000000ff" outline-thickness="3.000000" shadow-color="#000000ff"/>
         </vob>
         <pre>subtitle=g2;</pre>
-        <post>call vmgm menu 2;</post>
+        {"<post>call vmgm menu 2;</post>" if RANDOM_AFTER_VIDEO else ""}
       </pgc>
 """ for n in range(len(self.videos))]
 
@@ -261,7 +281,7 @@ class DVD:
     format="4" 
     xmlns:xlink="http://www.w3.org/1999/xlink"
     template="Basic\\frameTextAutoWS.dvdt"
-    isoFile="C:\\Users\\Lenovo\\Videos\\toDVD\\ISOs\\{self.ytName}.iso"
+    isoFile="{self.ytName}.iso"
     name="{self.ytName}"
     defPostCommand="2"
     videoFormat="3"
