@@ -24,7 +24,7 @@ def main():
     if background['ImageMode'] == 'youtube':
         _, _, ytName = background['YouTubeChannel'].partition("@")
 
-    basePath = Path(__file__).resolve().parent.parent.parent / "Youtubers" / ytName
+    basePath = basePath = Path.home() / "Videos" / "Youtubers" / ytName
     print(ytName)
 
     dl = download.Download(basePath, myInput)
