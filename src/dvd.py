@@ -183,9 +183,9 @@ class DVD:
               </defs>
               <g id="objects"/>
               <g id="buttons">
-                <use x="276" y="312" width="105" height="34" id="button01" xlink:href="#s_button01"/>
+                <use x="250" y="308" width="106" height="34" id="button01" xlink:href="#s_button01"/>
                 <use x="0" y="124" width="220" height="220" id="button02" xlink:href="#s_button02"/>
-                <use x="460" y="312" width="117" height="28" id="button03" xlink:href="#s_button03"/>
+                <use x="450" y="308" width="118" height="28" id="button03" xlink:href="#s_button03"/>
                 <use x="628" y="328" width="48" height="48" id="button04" xlink:href="#s_button04"/>
                 <use x="628" y="276" width="48" height="48" id="button05" xlink:href="#s_button05"/>
               </g>
